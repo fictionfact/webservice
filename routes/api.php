@@ -13,15 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-// Route::resource('barz','BarzController',['expect'=>['create','edit']]);
-
-Route::group(['prefix'=>'v1'],function(){
-Route::group(['middleware'=>['jwt.auth']], function(){
-	Route::resource('barz','BarzController',['expect'=>['create','edit']]);
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
 });
-
-Route::post('/login_check','AuthenticateController@authenticate');
-}
+Route::resource('barz','BarzController',['expect'=>['create','edit']]);
