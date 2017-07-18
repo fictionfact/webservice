@@ -23,9 +23,7 @@ class CreateTableItem extends Migration
             $table->string('image')->nullable();
             $table->integer('shop_id')->unsigned();;
             $table->timestamps();
-            $table->softDeletes();
-
-            
+            $table->softDeletes();  
         });
 
         Schema::table('items', function($table) {
