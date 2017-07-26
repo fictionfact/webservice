@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Item;
 
-class itemcontroller extends Controller
+class ItemController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,8 @@ class itemcontroller extends Controller
      */
     public function index()
     {
-        //
+        $item = Item::get();
+        return $item;
     }
 
     /**
@@ -34,22 +36,10 @@ class itemcontroller extends Controller
      */
     public function store(Request $request)
     {
-         try{
-                $this->validate($request,[
-                    'name' => 'required',
-                    'price' => 'required',
-                    'stock' => 'required',
-                    'description' => 'required',
-                    'shop_id' => 'required',
-                    ]);
-            }catch(Exception $e){
-                throw new Exception('salah pek');
-
-            }
-        $bar = new Bar();
-        $bar->bar = $request->input('bar');
-        $bar->save();
-        return response()->json($bar);
+        $item = new item();
+        $item->item = $request->item;
+        $item->save();
+        return $item;
     }
 
     /**
