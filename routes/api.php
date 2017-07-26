@@ -15,8 +15,11 @@ use Illuminate\Http\Request;
 
 Route::group(['prefix'=>'v1'],function(){
 	Route::post('/login_check','AuthenticateController@authenticate');
-Route::group(['middleware'=>['jwt.auth']], function(){
-	Route::resource('mediafile', 'MediafileController', ['expect' => ['create','edit']]);
-	Route::resource('barz','BarzController',['expect'=>['create','edit']]);
-});
+	Route::group(['middleware'=>['jwt.auth']], function(){
+		Route::resource('itag','ItagController',['expect'=>['create','edit']]);
+		Route::resource('item','ItemController',['expect'=>['create','edit']]);
+		Route::resource('Shop','ShopController',['expect'=>['create','edit']]);
+		Route::resource('Stag','StagController',['expect'=>['create','edit']]);
+		Route::resource('User','UserController',['expect'=>['create','edit']]);
+	});
 });
