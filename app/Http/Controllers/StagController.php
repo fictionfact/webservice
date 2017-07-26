@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Stag;
 
 class StagController extends Controller
 {
@@ -13,7 +14,8 @@ class StagController extends Controller
      */
     public function index()
     {
-        //
+        $stag = Stag::get();
+        return $stag;
     }
 
     /**
@@ -34,7 +36,10 @@ class StagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $stag = new stag();
+        $stag->stag = $request->stag;
+        $stag->save();
+        return $stag;
     }
 
     /**
