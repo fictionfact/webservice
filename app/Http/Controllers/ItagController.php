@@ -38,7 +38,7 @@ class ItagController extends Controller
      */
     public function store(Request $request)
     {
-        $itag = new Foo();
+        $itag = new itag();
         $itag->itag = $request->itag;
         $itag->save();
         return $itag;
