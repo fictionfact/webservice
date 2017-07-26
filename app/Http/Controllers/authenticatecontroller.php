@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 
-class authenticatecontroller extends Controller
+class AuthenticateController extends Controller
 {
-     public function authenticate(Request $request)
+    public function authenticate(Request $request)
     {
         // grab credentials from the request
         $credentials = $request->only('email', 'password');
