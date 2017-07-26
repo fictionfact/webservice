@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Itag:
 
-class fooController extends Controller
+class ItagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,10 @@ class fooController extends Controller
      */
     public function index()
     {
-        //
+        
+        
+        $itag = Itag::get();
+        return $itag;
     }
 
     /**
@@ -34,7 +38,10 @@ class fooController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $itag = new Foo();
+        $itag->itag = $request->itag;
+        $itag->save();
+        return $itag;
     }
 
     /**
@@ -66,18 +73,9 @@ class fooController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function cget(Request $request)
+    public function update(Request $request, $id)
     {
-        return response()->json([
-    [
-        'id' => 1,
-        'name' => 'foo1',
-    ],
-    [
-        'id' => 2,
-        'name' => 'foo2',
-    ]
-            ]);
+        //
     }
 
     /**
