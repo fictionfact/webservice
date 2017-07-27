@@ -19,15 +19,6 @@ class UserController extends Controller
         return $user;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -49,21 +40,17 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+        public function show($id)
     {
-        //
+        $user = User::find($id);
+        if (empty($user)){
+            return response()->json([
+                'message' => 'Record not found',
+            ], 404);
+        }
+        return $user;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -74,7 +61,15 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        if (empty($user)){
+            return response()->json([
+                'message' => 'Record not found',
+            ], 404);
+        }
+        $user->user = $request->user;
+        $user->save();
+        return $user;
     }
 
     /**
@@ -85,6 +80,16 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        if (empty($user)){
+            return response()->json([
+                'message' => 'Record not found',
+            ], 404);
+        }
+        $user->delete();
+        return response()->json([
+            'message' => 'Record deleted',
+        ]);
     }
+
 }
