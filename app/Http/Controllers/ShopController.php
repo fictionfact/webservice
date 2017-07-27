@@ -18,15 +18,6 @@ class ShopController extends Controller
         return $shop;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -50,19 +41,16 @@ class ShopController extends Controller
      */
     public function show($id)
     {
-        //
+        $shop = Shop::find($id);
+        if (empty($shop)){
+            return response()->json([
+                'message' => 'Record not found',
+            ], 404);
+        }
+        return $shop;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+
 
     /**
      * Update the specified resource in storage.
@@ -73,7 +61,15 @@ class ShopController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $shop = Shop::find($id);
+        if (empty($shop)){
+            return response()->json([
+                'message' => 'Record not found',
+            ], 404);
+        }
+        $shop->shop = $request->shop;
+        $shop->save();
+        return $shop;
     }
 
     /**
@@ -84,6 +80,16 @@ class ShopController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $shop = Shop::find($id);
+        if (empty($shop)){
+            return response()->json([
+                'message' => 'Record not found',
+            ], 404);
+        }
+        $shop->delete();
+        return response()->json([
+            'message' => 'Record deleted',
+        ]);
     }
+
 }
