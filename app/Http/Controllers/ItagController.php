@@ -52,7 +52,13 @@ class ItagController extends Controller
      */
     public function show($id)
     {
-        //
+        $itag = Itag::find($id);
+        if (empty($itag)){
+            return response()->json([
+                'message' => 'Record not found',
+            ], 404);
+        }
+        return $itag;
     }
 
     /**
@@ -75,7 +81,15 @@ class ItagController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $itag = Itag::find($id);
+        if (empty($itag)){
+            return response()->json([
+                'message' => 'Record not found',
+            ], 404);
+        }
+        $itag->itag = $request->itag;
+        $itag->save();
+        return $itag;
     }
 
     /**
@@ -86,6 +100,16 @@ class ItagController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $itag = Itag::find($id);
+        if (empty($itag)){
+            return response()->json([
+                'message' => 'Record not found',
+            ], 404);
+        }
+        $itag->delete();
+        return response()->json([
+            'message' => 'Record deleted',
+        ]);
     }
+
 }
