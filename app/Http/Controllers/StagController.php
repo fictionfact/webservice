@@ -18,15 +18,6 @@ class StagController extends Controller
         return $stag;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -48,21 +39,18 @@ class StagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+        public function show($id)
     {
-        //
+        $stag = Stag::find($id);
+        if (empty($stag)){
+            return response()->json([
+                'message' => 'Record not found',
+            ], 404);
+        }
+        return $stag;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+
 
     /**
      * Update the specified resource in storage.
@@ -73,7 +61,15 @@ class StagController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $stag = Stag::find($id);
+        if (empty($stag)){
+            return response()->json([
+                'message' => 'Record not found',
+            ], 404);
+        }
+        $stag->stag = $request->stag;
+        $stag->save();
+        return $stag;
     }
 
     /**
@@ -84,6 +80,16 @@ class StagController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $stag = Stag::find($id);
+        if (empty($stag)){
+            return response()->json([
+                'message' => 'Record not found',
+            ], 404);
+        }
+        $stag->delete();
+        return response()->json([
+            'message' => 'Record deleted',
+        ]);
     }
+
 }
