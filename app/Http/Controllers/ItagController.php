@@ -3,10 +3,41 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Itag:
+use App\Models\Itag;
 
 class ItagController extends Controller
 {
+
+
+/**
+* 
+*    @SWG\Get(
+*        path="/api/v1/itag",
+*        summary="Retrieves the collection of Itag resources.",
+*        produces={"application/json"},
+*        tags={"itag"},
+*        @SWG\Response(
+*            response=200,
+*            description="Itag collection.",
+*            @SWG\Schema(
+*                type="array",
+*                @SWG\Items(ref="#/definitions/itag")
+*                )
+*            ),
+*            @SWG\Response(
+*                response=401,
+*                description="Unauthorized action.",
+*            ),
+*            @SWG\Parameter(
+*                name="Authorization",
+*                in="header",
+*                required=true,
+*                type="string"
+*            )
+*        )
+*/
+
+
     /**
      * Display a listing of the resource.
      *
@@ -70,6 +101,36 @@ class ItagController extends Controller
         $itag->save();
         return $itag;
     }
+
+/**
+*
+*   @SWG\Delete(
+*        path="/api/v1/itag/{id}",
+*        summary="Removes the Itag resource.",
+*        produces={"application/json"},
+*        tags={"itag"},
+*        @SWG\Response(
+*            response=204,
+*            description="Itag resource deleted.",
+*        ),
+*        @SWG\Response(
+*            response=401,
+*            description="Unauthorized action.",
+*        ),
+*        @SWG\Response(
+*            response=404,
+*            description="Resource not found.",
+*        ),
+*        @SWG\Parameter(
+*            name="id",
+*            in="path",
+*            required=true,
+*            type="integer"
+*        )
+*    )
+*/
+
+
 
     /**
      * Remove the specified resource from storage.
