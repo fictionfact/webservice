@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(SeederTableUser::class);
-        $this->call(SeederTablePermission::class);
+        // $this->call(SeederTablePermission::class);
         $this->call(SeederTableStag::class);
         $this->call(SeederTableItag::class);
 

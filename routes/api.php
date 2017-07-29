@@ -22,4 +22,5 @@ Route::group(['prefix'=>'v1'],function(){
 		Route::resource('Stag','StagController',['expect'=>['create','edit']]);
 		Route::resource('User','UserController',['expect'=>['create','edit']]);
 	});
+	
 });
