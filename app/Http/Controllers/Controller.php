@@ -11,3 +11,33 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 }
+
+/** 
+*	@SWG\Swagger(
+*		basePath="",
+*		host="wshgay.app",
+*		schemes={"http"},
+*	@SWG\Info(
+*		version="1.0",
+*		title="Sample API",
+*		@SWG\Contact(
+*			name="Ronaldo",
+*			url="https://uph.edu"
+*		),
+*	),
+*	@SWG\Definition(
+*		definition="Error",
+*		required={"code", "message"},
+*		@SWG\Property(
+*			property="code",
+*			type="integer",
+*			format="int32"
+*		),
+*		@SWG\Property(
+*			property="message",
+*			type="string"
+*		)
+*	)
+*)
+*/
+
