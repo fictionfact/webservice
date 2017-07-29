@@ -16,11 +16,14 @@ use Illuminate\Http\Request;
 Route::group(['prefix'=>'v1'],function(){
 	Route::post('/login_check','AuthenticateController@authenticate');
 	Route::group(['middleware'=>['jwt.auth']], function(){
-		Route::resource('itag','ItagController',['expect'=>['create','edit']]);
-		Route::resource('item','ItemController',['expect'=>['create','edit']]);
-		Route::resource('Shop','ShopController',['expect'=>['create','edit']]);
-		Route::resource('Stag','StagController',['expect'=>['create','edit']]);
-		Route::resource('User','UserController',['expect'=>['create','edit']]);
+		Route::resource('itag','ItagController',['except'=>['create','edit']]);
+		Route::resource('item','ItemController',['except'=>['create','edit']]);
+		Route::resource('Shop','ShopController',['except'=>['create','edit']]);
+		Route::resource('Stag','StagController',['except'=>['create','edit']]);
+		Route::resource('User','UserController',['except'=>['create','edit']]);
+		Route::resource('order','OrderController',['except'=>['create','edit']]);
+		Route::resource('password_reset','PasswordResetController',['except'=>['create','edit']]);
+		Route::resource('revision','RevisionController',['except'=>['create','edit']]);
 	});
 	
 });
