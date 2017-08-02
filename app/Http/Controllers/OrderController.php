@@ -14,6 +14,7 @@ class OrderController extends Controller
      */
     public function index()
     {
+        $this->grantIfRole('admin');
         $order = Order::get();
         return $order;
     }
@@ -38,6 +39,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+        $this->grantIfRole('admin');
         $order = new order();
         $order->order = $request->order;
         $order->save();
@@ -52,6 +54,7 @@ class OrderController extends Controller
      */
     public function show($id)
     {
+        $this->grantIfRole('admin');
         $order = Order::find($id);
         if (empty($order)){
             return response()->json([
@@ -81,6 +84,7 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->grantIfRole('admin');
         $order = Order::find($id);
         if (empty($order)){
             return response()->json([
@@ -100,6 +104,7 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
+        $this->grantIfRole('admin');
         $order = Order::find($id);
         if (empty($order)){
             return response()->json([

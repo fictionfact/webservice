@@ -14,6 +14,7 @@ class RevisionController extends Controller
      */
     public function index()
     {
+        $this->grantIfRole('admin');
         $revision = Revision::get();
         return $revision;
     }
@@ -38,6 +39,7 @@ class RevisionController extends Controller
      */
     public function store(Request $request)
     {
+        $this->grantIfRole('admin');
         $revision = new revision();
         $revision->revision = $request->revision;
         $revision->save();
@@ -52,6 +54,7 @@ class RevisionController extends Controller
      */
     public function show($id)
     {
+        $this->grantIfRole('admin');
         $revision = Revision::find($id);
         if (empty($revision)){
             return response()->json([
@@ -81,6 +84,7 @@ class RevisionController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->grantIfRole('admin');
         $revision = Revision::find($id);
         if (empty($revision)){
             return response()->json([
@@ -100,6 +104,7 @@ class RevisionController extends Controller
      */
     public function destroy($id)
     {
+        $this->grantIfRole('admin');
         $revision = Revision::find($id);
         if (empty($revision)){
             return response()->json([

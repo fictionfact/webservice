@@ -7,7 +7,7 @@ use Backpack\CRUD\CrudTrait;
 
 class Customer extends Model {
 
-	use CrudTrait;
+	//use CrudTrait;
 
     /*
 	|--------------------------------------------------------------------------

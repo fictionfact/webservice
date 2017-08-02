@@ -14,6 +14,7 @@ class PasswordResetController extends Controller
      */
     public function index()
     {
+        $this->grantIfRole('admin');
         $password_reset = PasswordReset::get();
         return $password_reset;
     }
@@ -38,6 +39,7 @@ class PasswordResetController extends Controller
      */
     public function store(Request $request)
     {
+        $this->grantIfRole('admin');
         $password_reset = new password_reset();
         $password_reset->password_reset = $request->password_reset;
         $password_reset->save();
@@ -52,6 +54,7 @@ class PasswordResetController extends Controller
      */
     public function show($id)
     {
+        $this->grantIfRole('admin');
         $password_reset = PasswordReset::find($id);
         if (empty($password_reset)){
             return response()->json([
@@ -81,6 +84,7 @@ class PasswordResetController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->grantIfRole('admin');
         $password_reset = PasswordReset::find($id);
         if (empty($password_reset)){
             return response()->json([
@@ -100,6 +104,7 @@ class PasswordResetController extends Controller
      */
     public function destroy($id)
     {
+        $this->grantIfRole('admin');
         $password_reset = PasswordReset::find($id);
         if (empty($password_reset)){
             return response()->json([

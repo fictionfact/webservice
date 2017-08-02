@@ -13,7 +13,7 @@ class ItemController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   $this->grantIfRole('admin');
         $item = Item::get();
         return $item;
     }
@@ -27,6 +27,7 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
+        $this->grantIfRole('admin');
         $item = new item();
         $item->item = $request->item;
         $item->save();
@@ -41,6 +42,7 @@ class ItemController extends Controller
      */
     public function show($id)
     {
+        $this->grantIfRole('admin');
         $item = Item::find($id);
         if (empty($item)){
             return response()->json([
@@ -60,6 +62,7 @@ class ItemController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->grantIfRole('admin');
         $item = Item::find($id);
         if (empty($item)){
             return response()->json([
@@ -79,6 +82,7 @@ class ItemController extends Controller
      */
     public function destroy($id)
     {
+        $this->grantIfRole('admin');
         $item = Item::find($id);
         if (empty($item)){
             return response()->json([

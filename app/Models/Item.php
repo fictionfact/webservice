@@ -7,7 +7,7 @@ use Backpack\CRUD\CrudTrait;
 
 class Item extends Model {
 
-	use CrudTrait;
+	//use CrudTrait;
 
     /*
 	|--------------------------------------------------------------------------

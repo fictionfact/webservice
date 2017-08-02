@@ -14,7 +14,7 @@ class customercontroller extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   $this->grantIfRole('admin');
         $customer = Customer::get();
         return $customer;
     }
@@ -36,7 +36,7 @@ class customercontroller extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {    $this->grantIfRole('admin');
         $customer = new Customer();
         $customer->customer = $request->customer;
         $customer->save();
@@ -50,7 +50,7 @@ class customercontroller extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
+    {  $this->grantIfRole('admin');
        $customer = Customer::find($id);
         if (empty($customer)){
             return response()->json([
@@ -67,7 +67,7 @@ class customercontroller extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    {  $this->grantIfRole('admin');
        $customer = Customer::find($id);
         if (empty($customer)){
             return response()->json([
@@ -98,7 +98,7 @@ class customercontroller extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
+    {  $this->grantIfRole('admin');
         $customer = Customer::find($id);
         if (empty($customer)){
             return response()->json([
