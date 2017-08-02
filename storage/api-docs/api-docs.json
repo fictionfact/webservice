@@ -326,7 +326,7 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/user"
+                                "$ref": "#/definitions/User"
                             }
                         }
                     },
@@ -365,6 +365,69 @@
                     }
                 }
             }
+        },
+        "/api/v1/customer": {
+            "get": {
+                "tags": [
+                    "customer"
+                ],
+                "summary": "Retrieves the collection of Customer resources.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "customer collection.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/customer"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized action."
+                    }
+                }
+            }
+        },
+        "/api/v1/customer/{id}": {
+            "delete": {
+                "tags": [
+                    "customer"
+                ],
+                "summary": "Removes the customer resource.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "customer resource deleted."
+                    },
+                    "401": {
+                        "description": "Unauthorized action."
+                    },
+                    "404": {
+                        "description": "Resource not found."
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -379,6 +442,42 @@
                     "format": "int32"
                 },
                 "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "customer": {
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "user_id": {
+                    "type": "integer"
+                },
+                "birthday": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "gender": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "credit": {
+                    "type": "integer"
+                },
+                "order": {
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
                     "type": "string"
                 }
             }
@@ -488,6 +587,9 @@
                     "type": "string"
                 },
                 "password": {
+                    "type": "string"
+                },
+                "status": {
                     "type": "string"
                 },
                 "created_at": {

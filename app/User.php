@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    //use Notifiable;
 
 /**
 *
@@ -28,6 +28,10 @@ class User extends Authenticatable
 *       ),
 *       @SWG\Property(
 *           property="password",
+*           type="string"
+*       ),
+*       @SWG\Property(
+*           property="status",
 *           type="string"
 *       ),
 *       @SWG\Property(

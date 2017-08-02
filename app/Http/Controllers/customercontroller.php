@@ -8,6 +8,33 @@ use App\Models\Customer;
 
 class customercontroller extends Controller
 {
+/**
+* 
+*    @SWG\Get(
+*        path="/api/v1/customer",
+*        summary="Retrieves the collection of Customer resources.",
+*        produces={"application/json"},
+*        tags={"customer"},
+*        @SWG\Response(
+*            response=200,
+*            description="customer collection.",
+*            @SWG\Schema(
+*                type="array",
+*                @SWG\Items(ref="#/definitions/customer")
+*                )
+*            ),
+*            @SWG\Response(
+*                response=401,
+*                description="Unauthorized action.",
+*            ),
+*            @SWG\Parameter(
+*                name="Authorization",
+*                in="header",
+*                required=true,
+*                type="string"
+*            )
+*        )
+*/
     /**
      * Display a listing of the resource.
      *
@@ -90,7 +117,33 @@ class customercontroller extends Controller
     {
         //
     }
-
+/**
+*
+*   @SWG\Delete(
+*        path="/api/v1/customer/{id}",
+*        summary="Removes the customer resource.",
+*        produces={"application/json"},
+*        tags={"customer"},
+*        @SWG\Response(
+*            response=204,
+*            description="customer resource deleted.",
+*        ),
+*        @SWG\Response(
+*            response=401,
+*            description="Unauthorized action.",
+*        ),
+*        @SWG\Response(
+*            response=404,
+*            description="Resource not found.",
+*        ),
+*        @SWG\Parameter(
+*            name="id",
+*            in="path",
+*            required=true,
+*            type="integer"
+*        )
+*    )
+*/
     /**
      * Remove the specified resource from storage.
      *

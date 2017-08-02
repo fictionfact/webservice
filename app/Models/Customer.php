@@ -8,7 +8,54 @@ use Backpack\CRUD\CrudTrait;
 class Customer extends Model {
 
 	//use CrudTrait;
-
+/**
+*
+*   @SWG\Definition(
+*       definition="customer",
+*       @SWG\Property(
+*           property="id",
+*           type="integer",
+*           format="int32"
+*       ),
+*       @SWG\Property(
+*           property="user_id",
+*           type="integer"
+*       ),
+*       @SWG\Property(
+*           property="birthday",
+*           type="string",
+*			format= "date"
+*       ),
+*       @SWG\Property(
+*           property="gender",
+*           type="string"
+*       ),
+*       @SWG\Property(
+*           property="email",
+*           type="string"
+*       ),
+*       @SWG\Property(
+*           property="phone",
+*           type="string"
+*       ),
+*       @SWG\Property(
+*           property="credit",
+*           type="integer"
+*       ),
+*       @SWG\Property(
+*           property="order",
+*           type="integer"
+*       ),
+*       @SWG\Property(
+*           property="created_at",
+*           type="string"
+*       ),
+*       @SWG\Property(
+*           property="updated_at",
+*           type="string"
+*       )
+*   )
+*/
     /*
 	|--------------------------------------------------------------------------
 	| GLOBAL VARIABLES
