@@ -28,10 +28,10 @@ class Controller extends BaseController
 *		schemes={"http"},
 *	@SWG\Info(
 *		version="1.0",
-*		title="Sample API",
+*		title="Langsungmakan API",
 *		@SWG\Contact(
-*			name="Henry",
-*			url="https://www.google.com"
+*			name="Our",
+*			url="https://www.langsungmakan.com"
 *		),
 *	),
 *	@SWG\Definition(
