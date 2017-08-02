@@ -12,7 +12,7 @@ class User extends Authenticatable
 /**
 *
 *   @SWG\Definition(
-*       definition="User",
+*       definition="user",
 *       @SWG\Property(
 *           property="id",
 *           type="integer",

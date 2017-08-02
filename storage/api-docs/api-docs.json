@@ -475,7 +475,7 @@
                 }
             }
         },
-        "User": {
+        "user": {
             "properties": {
                 "id": {
                     "type": "integer",
