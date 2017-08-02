@@ -3,18 +3,32 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Backpack\CRUD\CrudTrait;
 
 class Stag extends Model {
 
-	use CrudTrait;
-	use \Backpack\CRUD\CrudTrait, \Venturecraft\Revisionable\RevisionableTrait;
-
-    /*
-	|--------------------------------------------------------------------------
-	| GLOBAL VARIABLES
-	|--------------------------------------------------------------------------
-	*/
+/**
+*
+*	@SWG\Definition(
+*		definition="stag",
+*		@SWG\Property(
+*			property="id",
+*			type="integer",
+*			format="int32"
+*		),
+*		@SWG\Property(
+*			property="name",
+*			type="string"
+*		),
+*		@SWG\Property(
+*			property="created_at",
+*			type="string"
+*		),
+*		@SWG\Property(
+*			property="updated_at",
+*			type="string"
+*		)
+*	)
+*/
 
 	protected $table = 'stags';
 	protected $primaryKey = 'id';
@@ -23,38 +37,12 @@ class Stag extends Model {
 	protected $fillable = ['name'];
 	public $timestamps = true;
 
-	/*
-	|--------------------------------------------------------------------------
-	| FUNCTIONS
-	|--------------------------------------------------------------------------
-	*/
 
-	/*
-	|--------------------------------------------------------------------------
-	| RELATIONS
-	|--------------------------------------------------------------------------
-	*/
 
 	public function shops()
 	{
 		return $this->belongsToMany('App\Models\Shop','shop_stags');
 	}
 
-	/*
-	|--------------------------------------------------------------------------
-	| SCOPES
-	|--------------------------------------------------------------------------
-	*/
 
-	/*
-	|--------------------------------------------------------------------------
-	| ACCESORS
-	|--------------------------------------------------------------------------
-	*/
-
-	/*
-	|--------------------------------------------------------------------------
-	| MUTATORS
-	|--------------------------------------------------------------------------
-	*/
 }
