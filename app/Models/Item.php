@@ -6,9 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model {
 
-<<<<<<< HEAD
+
 	//use CrudTrait;
-=======
 /**
 *
 *   @SWG\Definition(
@@ -44,7 +43,6 @@ class Item extends Model {
 *       )
 *   )
 */
->>>>>>> origin/master
 
 
 	protected $table = 'items';

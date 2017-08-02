@@ -44,6 +44,7 @@ class ItemController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+    
     {   $this->grantIfRole('admin');
         $item = Item::get();
         return $item;
