@@ -21,6 +21,7 @@ Route::group(['prefix'=>'v1'],function(){
 		Route::resource('Shop','ShopController',['except'=>['create','edit']]);
 		Route::resource('Stag','StagController',['except'=>['create','edit']]);
 		Route::resource('User','UserController',['except'=>['create','edit']]);
+
 		Route::resource('order','OrderController',['except'=>['create','edit']]);
 		Route::resource('password_reset','PasswordResetController',['except'=>['create','edit']]);
 		Route::resource('revision','RevisionController',['except'=>['create','edit']]);

@@ -9,6 +9,37 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+/**
+*
+*   @SWG\Definition(
+*       definition="User",
+*       @SWG\Property(
+*           property="id",
+*           type="integer",
+*           format="int32"
+*       ),
+*       @SWG\Property(
+*           property="name",
+*           type="string"
+*       ),
+*       @SWG\Property(
+*           property="email",
+*           type="string"
+*       ),
+*       @SWG\Property(
+*           property="password",
+*           type="string"
+*       ),
+*       @SWG\Property(
+*           property="created_at",
+*           type="string"
+*       ),
+*       @SWG\Property(
+*           property="updated_at",
+*           type="string"
+*       )
+*   )
+*/
     /**
      * The attributes that are mass assignable.
      *

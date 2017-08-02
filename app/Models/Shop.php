@@ -3,17 +3,53 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Backpack\CRUD\CrudTrait;
 
 class Shop extends Model {
 
-	use CrudTrait;
+/**
+*
+*   @SWG\Definition(
+*       definition="shop",
+*       @SWG\Property(
+*           property="id",
+*           type="integer",
+*           format="int32"
+*       ),
+*       @SWG\Property(
+*           property="name",
+*           type="string"
+*       ),
+*       @SWG\Property(
+*           property="is_open",
+*           type="integer"
+*       ),
+*       @SWG\Property(
+*           property="open_at",
+*           type="string"
+*       ),
+*       @SWG\Property(
+*           property="close_at",
+*           type="string"
+*       ),
+*       @SWG\Property(
+*           property="shop_location_id",
+*           type="integer"
+*       ),
+*       @SWG\Property(
+*           property="shop_owner_id",
+*           type="integer"
+*       ),
+*       @SWG\Property(
+*           property="created_at",
+*           type="string"
+*       ),
+*       @SWG\Property(
+*           property="updated_at",
+*           type="string"
+*       )
+*   )
+*/
 
-    /*
-	|--------------------------------------------------------------------------
-	| GLOBAL VARIABLES
-	|--------------------------------------------------------------------------
-	*/
 
 	protected $table = 'shops';
 	protected $primaryKey = 'id';
@@ -22,21 +58,7 @@ class Shop extends Model {
 	protected $fillable = ['name', 'image', 'is_open', 'open_at', 'close_at', 'shop_location_id', 'shop_owner_id'];
 	public $timestamps = true;
 
-	/*
-	|--------------------------------------------------------------------------
-	| FUNCTIONS
-	|--------------------------------------------------------------------------
-	*/
 
-    public function getShopOwnerName(){
-        return $this->shop_owner->user->name;
-    }
-
-	/*
-	|--------------------------------------------------------------------------
-	| RELATIONS
-	|--------------------------------------------------------------------------
-	*/
 	
 	public function stags()
     {
@@ -61,9 +83,6 @@ class Shop extends Model {
         return $this->hasMany('App\Models\Item');
     }
 
-    // public function order(){
-    //     return $this->hasManyThrough('App\Models\Order', 'App\Models\ShopOwner');
-    // }
 
     public function orders(){
         return $this->hasMany('App\Models\Order');
@@ -74,59 +93,4 @@ class Shop extends Model {
         return $this->hasMany('App\Models\OrderedItem');
     }
 
-
-	
-	/*
-	|--------------------------------------------------------------------------
-	| SCOPES
-	|--------------------------------------------------------------------------
-	*/
-
-	/*
-	|--------------------------------------------------------------------------
-	| ACCESORS
-	|--------------------------------------------------------------------------
-	*/
-
-	/*
-	|--------------------------------------------------------------------------
-	| MUTATORS
-	|--------------------------------------------------------------------------
-	*/
-
-	public function setImageAttribute($value)
-    {
-        $attribute_name = "image";
-        $disk = "local";
-        $destination_path = "uploads/images/shops";
-
-        // if the image was erased
-        if ($value==null) {
-            // delete the image from disk
-            \Storage::disk($disk)->delete($this->image);
-
-            // set null in the database column
-            $this->attributes[$attribute_name] = null;
-        }
-
-        // if a base64 was sent, store it in the db
-        if (starts_with($value, 'data:image'))
-        {
-            // 0. Make the image
-            $image = \Image::make($value);
-            // 1. Generate a filename.
-            $filename = md5($value.time()).'.jpg';
-            // 2. Store the image on disk.
-            \Storage::disk($disk)->put($destination_path.'/'.$filename, $image->stream());
-            // 3. Save the path to the database
-            $this->attributes[$attribute_name] = $destination_path.'/'.$filename;
-        }
-    }
-
-    public static function boot()
-    {
-        static::deleting(function($obj) {
-            \Storage::disk('local')->delete($obj->image);
-        });
-    }
 }
