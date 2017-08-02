@@ -21,8 +21,8 @@ class Controller extends BaseController
 *		version="1.0",
 *		title="Sample API",
 *		@SWG\Contact(
-*			name="Ronaldo",
-*			url="https://uph.edu"
+*			name="Henry",
+*			url="https://www.google.com"
 *		),
 *	),
 *	@SWG\Definition(
