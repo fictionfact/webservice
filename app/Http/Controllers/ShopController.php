@@ -44,6 +44,7 @@ class ShopController extends Controller
      */
     public function index()
     {
+        $this->grantIfRole('admin');
         $shop = Shop::get();
         return $shop;
     }
@@ -57,6 +58,7 @@ class ShopController extends Controller
      */
     public function store(Request $request)
     {
+        $this->grantIfRole('admin');
         $shop = new shop();
         $shop->shop = $request->shop;
         $shop->save();
@@ -71,6 +73,7 @@ class ShopController extends Controller
      */
     public function show($id)
     {
+        $this->grantIfRole('admin');
         $shop = Shop::find($id);
         if (empty($shop)){
             return response()->json([
@@ -90,6 +93,7 @@ class ShopController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->grantIfRole('admin');
         $shop = Shop::find($id);
         if (empty($shop)){
             return response()->json([
@@ -139,6 +143,7 @@ class ShopController extends Controller
      */
     public function destroy($id)
     {
+        $this->grantIfRole('admin');
         $shop = Shop::find($id);
         if (empty($shop)){
             return response()->json([

@@ -43,6 +43,7 @@ class StagController extends Controller
      */
     public function index()
     {
+        $this->grantIfRole('admin');
         $stag = Stag::get();
         return $stag;
     }
@@ -56,6 +57,7 @@ class StagController extends Controller
      */
     public function store(Request $request)
     {
+        $this->grantIfRole('admin');
         $stag = new stag();
         $stag->stag = $request->stag;
         $stag->save();
@@ -70,6 +72,7 @@ class StagController extends Controller
      */
     public function show($id)
     {
+        $this->grantIfRole('admin');
         $stag = Stag::find($id);
         if (empty($stag)){
             return response()->json([
@@ -89,6 +92,7 @@ class StagController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->grantIfRole('admin');
         $stag = Stag::find($id);
         if (empty($stag)){
             return response()->json([
@@ -138,6 +142,7 @@ class StagController extends Controller
      */
     public function destroy($id)
     {
+        $this->grantIfRole('admin');
         $stag = Stag::find($id);
         if (empty($stag)){
             return response()->json([

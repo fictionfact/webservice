@@ -44,6 +44,7 @@ class UserController extends Controller
      */
     public function index()
     {
+        $this->grantIfRole('admin');
         $user = User::get();
         return $user;
     }
@@ -57,6 +58,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $this->grantIfRole('admin');
         $user = new user();
         $user->user = $request->user;
         $user->save();
@@ -71,6 +73,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
+        $this->grantIfRole('admin');
         $user = User::find($id);
         if (empty($user)){
             return response()->json([
@@ -90,6 +93,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->grantIfRole('admin');
         $user = User::find($id);
         if (empty($user)){
             return response()->json([
@@ -139,6 +143,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        $this->grantIfRole('admin');
         $user = User::find($id);
         if (empty($user)){
             return response()->json([

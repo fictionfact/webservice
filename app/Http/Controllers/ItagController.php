@@ -45,6 +45,7 @@ class ItagController extends Controller
      */
     public function index()
     {
+        $this->grantIfRole('admin');
         $itag = Itag::get();
         return $itag;
     }
@@ -58,6 +59,7 @@ class ItagController extends Controller
      */
     public function store(Request $request)
     {
+        $this->grantIfRole('admin');
         $itag = new itag();
         $itag->itag = $request->itag;
         $itag->save();
@@ -72,6 +74,7 @@ class ItagController extends Controller
      */
     public function show($id)
     {
+        $this->grantIfRole('admin');
         $itag = Itag::find($id);
         if (empty($itag)){
             return response()->json([
@@ -91,6 +94,7 @@ class ItagController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->grantIfRole('admin');
         $itag = Itag::find($id);
         if (empty($itag)){
             return response()->json([
@@ -140,6 +144,7 @@ class ItagController extends Controller
      */
     public function destroy($id)
     {
+        $this->grantIfRole('admin');
         $itag = Itag::find($id);
         if (empty($itag)){
             return response()->json([
