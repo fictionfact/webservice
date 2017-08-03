@@ -1,4 +1,3 @@
-
 <?php
 
 namespace App\Http\Controllers;
@@ -105,7 +104,48 @@ class customercontroller extends Controller
         $customer->save();
         return $customer;
     }
-
+/**
+* 
+*    @SWG\Put(
+*        path="/api/v1/customer/{id}",
+*        summary="Retrieves the collection of Customer resources.",
+*        produces={"application/json"},
+*        tags={"customer"},
+*        @SWG\Response(
+*            response=200,
+*            description="customer collection.",
+*            @SWG\Schema(
+*                type="array",
+*                @SWG\Items(ref="#/definitions/customer")
+*                )
+*            ),
+*            @SWG\Response(
+*                response=401,
+*                description="Unauthorized action.",
+*            ),
+*            @SWG\Parameter(
+*                name="Authorization",
+*                in="header",
+*                required=true,
+*                type="string"
+*            ),
+*           @SWG\Parameter(
+*            name="id",
+*            in="path",
+*            required=true,
+*            type="integer"
+*           ),
+*        @SWG\Parameter(
+*            name="body",
+*            in="body",
+*            required=true,
+*            type="string",
+*            @SWG\Schema(
+*            type="string"
+*            )
+*        )
+*        )
+*/
     /**
      * Update the specified resource in storage.
      *
@@ -115,7 +155,19 @@ class customercontroller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $this->grantIfRole('admin');
+       $customer = Customer::find($id);
+        if (empty($customer)){
+            return response()->json([
+                'message' => 'Record not found',
+            ], 404);
+        }
+        $customer->phone = $request->phone;
+        $customer->gender = $request->gender;
+        $customer->birthday = $request->birthday;
+        $customer->credit = $request->credit;
+        $customer->save();
+        return $customer;
     }
 /**
 *

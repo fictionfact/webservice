@@ -31,7 +31,7 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 *            required=true,
 *            type="string",
 *            @SWG\Schema(
-*                type="string"
+*            type="string"
 *            )
 *        )
 *    )
