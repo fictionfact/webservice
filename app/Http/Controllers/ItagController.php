@@ -158,6 +158,12 @@ class ItagController extends Controller
 *            response=204,
 *            description="Itag resource deleted.",
 *        ),
+*            @SWG\Parameter(
+*                name="Authorization",
+*                in="header",
+*                required=true,
+*                type="string"
+*            ),
 *        @SWG\Response(
 *            response=401,
 *            description="Unauthorized action.",

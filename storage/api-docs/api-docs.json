@@ -141,6 +141,12 @@
                 ],
                 "parameters": [
                     {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
                         "name": "id",
                         "in": "path",
                         "required": true,
@@ -239,34 +245,6 @@
                         "description": "Unauthorized action."
                     }
                 }
-            },
-            "delete": {
-                "tags": [
-                    "item"
-                ],
-                "summary": "Removes the Item resource.",
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "type": "integer"
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "Item resource deleted."
-                    },
-                    "401": {
-                        "description": "Unauthorized action."
-                    },
-                    "404": {
-                        "description": "Resource not found."
-                    }
-                }
             }
         },
         "/api/v1/order": {
@@ -312,6 +290,12 @@
                     "application/json"
                 ],
                 "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "type": "string"
+                    },
                     {
                         "name": "id",
                         "in": "path",
@@ -503,6 +487,12 @@
                 ],
                 "parameters": [
                     {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
                         "name": "id",
                         "in": "path",
                         "required": true,
@@ -612,6 +602,12 @@
                 ],
                 "parameters": [
                     {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
                         "name": "id",
                         "in": "path",
                         "required": true,
@@ -669,7 +665,7 @@
                 "tags": [
                     "customer"
                 ],
-                "summary": "Retrieves the collection of Customer resources.",
+                "summary": "Edit Customer resources.phone,gender,birthday,credit",
                 "produces": [
                     "application/json"
                 ],

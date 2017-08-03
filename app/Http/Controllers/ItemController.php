@@ -149,33 +149,7 @@ class ItemController extends Controller
         return $item;
     }
 
-/**
-*
-*   @SWG\Delete(
-*        path="/api/v1/item/{id}",
-*        summary="Removes the Item resource.",
-*        produces={"application/json"},
-*        tags={"item"},
-*        @SWG\Response(
-*            response=204,
-*            description="Item resource deleted.",
-*        ),
-*        @SWG\Response(
-*            response=401,
-*            description="Unauthorized action.",
-*        ),
-*        @SWG\Response(
-*            response=404,
-*            description="Resource not found.",
-*        ),
-*        @SWG\Parameter(
-*            name="id",
-*            in="path",
-*            required=true,
-*            type="integer"
-*        )
-*    )
-*/
+
 
 
 

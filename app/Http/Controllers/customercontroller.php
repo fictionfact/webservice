@@ -108,7 +108,7 @@ class customercontroller extends Controller
 * 
 *    @SWG\Put(
 *        path="/api/v1/customer/{id}",
-*        summary="Retrieves the collection of Customer resources.",
+*        summary="Edit Customer resources.phone,gender,birthday,credit",
 *        produces={"application/json"},
 *        tags={"customer"},
 *        @SWG\Response(
@@ -190,3 +190,4 @@ class customercontroller extends Controller
         ]);
     }
 }
+
