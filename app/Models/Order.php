@@ -7,8 +7,61 @@ use Backpack\CRUD\CrudTrait;
 
 class Order extends Model {
 
-	use CrudTrait;
-	use \Backpack\CRUD\CrudTrait, \Venturecraft\Revisionable\RevisionableTrait;
+	// use CrudTrait;
+	// use \Backpack\CRUD\CrudTrait, \Venturecraft\Revisionable\RevisionableTrait;
+
+/**
+*
+*   @SWG\Definition(
+*       definition="order",
+*       @SWG\Property(
+*           property="id",
+*           type="integer",
+*           format="int32"
+*       ),
+*       @SWG\Property(
+*           property="customer_id",
+*           type="integer"
+*       ),
+*       @SWG\Property(
+*           property="order_batch_code",
+*           type="integer"
+*       ),
+*       @SWG\Property(
+*           property="order_status",
+*           type="string"
+*       ),
+*       @SWG\Property(
+*           property="total_price",
+*           type="integer"
+*       ),
+*       @SWG\Property(
+*           property="reserve_time",
+*           type="string",
+*			format="time"
+*       ),
+*       @SWG\Property(
+*           property="shop_id",
+*           type="integer"
+*       ),
+*       @SWG\Property(
+*           property="created_at",
+*           type="string",
+*			format="timestamp"
+*       ),
+*       @SWG\Property(
+*           property="updated_at",
+*           type="string",
+*			format="timestamp"
+*       ),
+*		@SWG\Property(
+*           property="deleted_at",
+*           type="string",
+*			format="timestamp"
+*       )
+*   )
+*/
+
 
     /*
 	|--------------------------------------------------------------------------

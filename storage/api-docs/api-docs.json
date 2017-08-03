@@ -177,6 +177,69 @@
                 }
             }
         },
+        "/api/v1/order": {
+            "get": {
+                "tags": [
+                    "order"
+                ],
+                "summary": "Retrieves the collection of Order resources.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Order collection.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/order"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized action."
+                    }
+                }
+            }
+        },
+        "/api/v1/order/{id}": {
+            "delete": {
+                "tags": [
+                    "order"
+                ],
+                "summary": "Removes the Order resource.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Order resource deleted."
+                    },
+                    "401": {
+                        "description": "Unauthorized action."
+                    },
+                    "404": {
+                        "description": "Resource not found."
+                    }
+                }
+            }
+        },
         "/api/v1/shop": {
             "get": {
                 "tags": [
@@ -522,6 +585,45 @@
                 },
                 "updated_at": {
                     "type": "string"
+                }
+            }
+        },
+        "order": {
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "customer_id": {
+                    "type": "integer"
+                },
+                "order_batch_code": {
+                    "type": "integer"
+                },
+                "order_status": {
+                    "type": "string"
+                },
+                "total_price": {
+                    "type": "integer"
+                },
+                "reserve_time": {
+                    "type": "string",
+                    "format": "time"
+                },
+                "shop_id": {
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "timestamp"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "format": "timestamp"
+                },
+                "deleted_at": {
+                    "type": "string",
+                    "format": "timestamp"
                 }
             }
         },

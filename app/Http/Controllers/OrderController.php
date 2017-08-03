@@ -3,10 +3,40 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Order;
+use App\Models\Order;
 
 class OrderController extends Controller
 {
+
+
+/**
+* 
+*    @SWG\Get(
+*        path="/api/v1/order",
+*        summary="Retrieves the collection of Order resources.",
+*        produces={"application/json"},
+*        tags={"order"},
+*        @SWG\Response(
+*            response=200,
+*            description="Order collection.",
+*            @SWG\Schema(
+*                type="array",
+*                @SWG\Items(ref="#/definitions/order")
+*                )
+*            ),
+*            @SWG\Response(
+*                response=401,
+*                description="Unauthorized action.",
+*            ),
+*            @SWG\Parameter(
+*                name="Authorization",
+*                in="header",
+*                required=true,
+*                type="string"
+*            )
+*        )
+*/
+
     /**
      * Display a listing of the resource.
      *
@@ -102,6 +132,35 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+/**
+*
+*   @SWG\Delete(
+*        path="/api/v1/order/{id}",
+*        summary="Removes the Order resource.",
+*        produces={"application/json"},
+*        tags={"order"},
+*        @SWG\Response(
+*            response=204,
+*            description="Order resource deleted.",
+*        ),
+*        @SWG\Response(
+*            response=401,
+*            description="Unauthorized action.",
+*        ),
+*        @SWG\Response(
+*            response=404,
+*            description="Resource not found.",
+*        ),
+*        @SWG\Parameter(
+*            name="id",
+*            in="path",
+*            required=true,
+*            type="integer"
+*        )
+*    )
+*/
+
     public function destroy($id)
     {
         $this->grantIfRole('admin');
