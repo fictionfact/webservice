@@ -10,7 +10,7 @@ class StagController extends Controller
 /**
 * 
 *    @SWG\Get(
-*        path="/api/v1/stag",
+*        path="/api/v1/Stag",
 *        summary="Retrieves the collection of Stag resources.",
 *        produces={"application/json"},
 *        tags={"stag"},
@@ -82,7 +82,48 @@ class StagController extends Controller
         return $stag;
     }
 
-
+/**
+* 
+*    @SWG\Put(
+*        path="/api/v1/Stag/{id}",
+*        summary="Edit stag resources.",
+*        produces={"application/json"},
+*        tags={"stag"},
+*        @SWG\Response(
+*            response=200,
+*            description="stag collection.",
+*            @SWG\Schema(
+*                type="array",
+*                @SWG\Items(ref="#/definitions/stag")
+*                )
+*            ),
+*            @SWG\Response(
+*                response=401,
+*                description="Unauthorized action.",
+*            ),
+*            @SWG\Parameter(
+*                name="Authorization",
+*                in="header",
+*                required=true,
+*                type="string"
+*            ),
+*           @SWG\Parameter(
+*            name="id",
+*            in="path",
+*            required=true,
+*            type="integer"
+*           ),
+*        @SWG\Parameter(
+*            name="body",
+*            in="body",
+*            required=true,
+*            type="string",
+*            @SWG\Schema(
+*            type="string"
+*            )
+*        )
+*        )
+*/
     /**
      * Update the specified resource in storage.
      *
@@ -99,7 +140,7 @@ class StagController extends Controller
                 'message' => 'Record not found',
             ], 404);
         }
-        $stag->stag = $request->stag;
+        $stag->name = $request->name;
         $stag->save();
         return $stag;
     }
@@ -107,7 +148,7 @@ class StagController extends Controller
 /**
 *
 *   @SWG\Delete(
-*        path="/api/v1/stag/{id}",
+*        path="/api/v1/Stag/{id}",
 *        summary="Removes the Stag resource.",
 *        produces={"application/json"},
 *        tags={"stag"},

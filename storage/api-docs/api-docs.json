@@ -85,6 +85,52 @@
             }
         },
         "/api/v1/itag/{id}": {
+            "put": {
+                "tags": [
+                    "itag"
+                ],
+                "summary": "Edit itag resources.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "itag collection.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/itag"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized action."
+                    }
+                }
+            },
             "delete": {
                 "tags": [
                     "itag"
@@ -148,6 +194,52 @@
             }
         },
         "/api/v1/item/{id}": {
+            "put": {
+                "tags": [
+                    "item"
+                ],
+                "summary": "Edit item resources. name,price,stock",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "item collection.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/item"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized action."
+                    }
+                }
+            },
             "delete": {
                 "tags": [
                     "item"
@@ -240,7 +332,7 @@
                 }
             }
         },
-        "/api/v1/shop": {
+        "/api/v1/Shop": {
             "get": {
                 "tags": [
                     "shop"
@@ -273,37 +365,55 @@
                 }
             }
         },
-        "/api/v1/shop/{id}": {
-            "delete": {
+        "/api/v1/Shop/{id}": {
+            "put": {
                 "tags": [
                     "shop"
                 ],
-                "summary": "Removes the Shop resource.",
+                "summary": "Edit shops resources.",
                 "produces": [
                     "application/json"
                 ],
                 "parameters": [
                     {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
                         "name": "id",
                         "in": "path",
                         "required": true,
                         "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "type": "string"
                     }
                 ],
                 "responses": {
-                    "204": {
-                        "description": "Shop resource deleted."
+                    "200": {
+                        "description": "shop collection.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/shop"
+                            }
+                        }
                     },
                     "401": {
                         "description": "Unauthorized action."
-                    },
-                    "404": {
-                        "description": "Resource not found."
                     }
                 }
             }
         },
-        "/api/v1/stag": {
+        "/api/v1/Stag": {
             "get": {
                 "tags": [
                     "stag"
@@ -336,7 +446,53 @@
                 }
             }
         },
-        "/api/v1/stag/{id}": {
+        "/api/v1/Stag/{id}": {
+            "put": {
+                "tags": [
+                    "stag"
+                ],
+                "summary": "Edit stag resources.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "stag collection.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/stag"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized action."
+                    }
+                }
+            },
             "delete": {
                 "tags": [
                     "stag"
@@ -366,7 +522,7 @@
                 }
             }
         },
-        "/api/v1/user": {
+        "/api/v1/User": {
             "get": {
                 "tags": [
                     "user"
@@ -399,7 +555,53 @@
                 }
             }
         },
-        "/api/v1/user/{id}": {
+        "/api/v1/User/{id}": {
+            "put": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Edit User resources.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "shop collection.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/user"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized action."
+                    }
+                }
+            },
             "delete": {
                 "tags": [
                     "user"
@@ -506,34 +708,6 @@
                     },
                     "401": {
                         "description": "Unauthorized action."
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "customer"
-                ],
-                "summary": "Removes the customer resource.",
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "type": "integer"
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "customer resource deleted."
-                    },
-                    "401": {
-                        "description": "Unauthorized action."
-                    },
-                    "404": {
-                        "description": "Resource not found."
                     }
                 }
             }

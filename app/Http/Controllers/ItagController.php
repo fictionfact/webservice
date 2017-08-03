@@ -84,7 +84,48 @@ class ItagController extends Controller
         return $itag;
     }
 
-
+/**
+* 
+*    @SWG\Put(
+*        path="/api/v1/itag/{id}",
+*        summary="Edit itag resources.",
+*        produces={"application/json"},
+*        tags={"itag"},
+*        @SWG\Response(
+*            response=200,
+*            description="itag collection.",
+*            @SWG\Schema(
+*                type="array",
+*                @SWG\Items(ref="#/definitions/itag")
+*                )
+*            ),
+*            @SWG\Response(
+*                response=401,
+*                description="Unauthorized action.",
+*            ),
+*            @SWG\Parameter(
+*                name="Authorization",
+*                in="header",
+*                required=true,
+*                type="string"
+*            ),
+*           @SWG\Parameter(
+*            name="id",
+*            in="path",
+*            required=true,
+*            type="integer"
+*           ),
+*        @SWG\Parameter(
+*            name="body",
+*            in="body",
+*            required=true,
+*            type="string",
+*            @SWG\Schema(
+*            type="string"
+*            )
+*        )
+*        )
+*/
     /**
      * Update the specified resource in storage.
      *
@@ -101,7 +142,7 @@ class ItagController extends Controller
                 'message' => 'Record not found',
             ], 404);
         }
-        $itag->itag = $request->itag;
+        $itag->name = $request->name;
         $itag->save();
         return $itag;
     }

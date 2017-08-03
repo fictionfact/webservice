@@ -83,23 +83,23 @@ class Customer extends Model {
 	|--------------------------------------------------------------------------
 	*/
 
-	public function orders()
-    {
-        return $this->hasMany('App\Models\Order');
-    }
-    public function orderss()
-    {
-        return $this->hasMany('App\Models\Ordereditem');
-    }
+	// public function orders()
+ //    {
+ //        return $this->hasMany('App\Models\Order');
+ //    }
+ //    public function orderss()
+ //    {
+ //        return $this->hasMany('App\Models\Ordereditem');
+ //    }
      
-    // public function orderItems()
-    // {
-    //     return $this->hasMany('App\Models\Order');
-    // }
-    public function user()
-    {
-    	return $this->belongsTo('App\User');
-    }
+ //    // public function orderItems()
+ //    // {
+ //    //     return $this->hasMany('App\Models\Order');
+ //    // }
+ //    public function user()
+ //    {
+ //    	return $this->belongsTo('App\User');
+ //    }
 
 
 	/*

@@ -84,7 +84,48 @@ class ItemController extends Controller
         return $item;
     }
 
-
+/**
+* 
+*    @SWG\Put(
+*        path="/api/v1/item/{id}",
+*        summary="Edit item resources. name,price,stock",
+*        produces={"application/json"},
+*        tags={"item"},
+*        @SWG\Response(
+*            response=200,
+*            description="item collection.",
+*            @SWG\Schema(
+*                type="array",
+*                @SWG\Items(ref="#/definitions/item")
+*                )
+*            ),
+*            @SWG\Response(
+*                response=401,
+*                description="Unauthorized action.",
+*            ),
+*            @SWG\Parameter(
+*                name="Authorization",
+*                in="header",
+*                required=true,
+*                type="string"
+*            ),
+*           @SWG\Parameter(
+*            name="id",
+*            in="path",
+*            required=true,
+*            type="integer"
+*           ),
+*        @SWG\Parameter(
+*            name="body",
+*            in="body",
+*            required=true,
+*            type="string",
+*            @SWG\Schema(
+*            type="string"
+*            )
+*        )
+*        )
+*/
     /**
      * Update the specified resource in storage.
      *
@@ -101,7 +142,9 @@ class ItemController extends Controller
                 'message' => 'Record not found',
             ], 404);
         }
-        $item->item = $request->item;
+        $item->name = $request->name;
+        $item->price = $request->price;
+        $item->stock = $request->stock;
         $item->save();
         return $item;
     }

@@ -11,7 +11,7 @@ class UserController extends Controller
 /**
 * 
 *    @SWG\Get(
-*        path="/api/v1/user",
+*        path="/api/v1/User",
 *        summary="Retrieves the collection of User resources.",
 *        produces={"application/json"},
 *        tags={"user"},
@@ -91,6 +91,48 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    /**
+* 
+*    @SWG\Put(
+*        path="/api/v1/User/{id}",
+*        summary="Edit User resources.",
+*        produces={"application/json"},
+*        tags={"user"},
+*        @SWG\Response(
+*            response=200,
+*            description="shop collection.",
+*            @SWG\Schema(
+*                type="array",
+*                @SWG\Items(ref="#/definitions/user")
+*                )
+*            ),
+*            @SWG\Response(
+*                response=401,
+*                description="Unauthorized action.",
+*            ),
+*            @SWG\Parameter(
+*                name="Authorization",
+*                in="header",
+*                required=true,
+*                type="string"
+*            ),
+*           @SWG\Parameter(
+*            name="id",
+*            in="path",
+*            required=true,
+*            type="integer"
+*           ),
+*        @SWG\Parameter(
+*            name="body",
+*            in="body",
+*            required=true,
+*            type="string",
+*            @SWG\Schema(
+*            type="string"
+*            )
+*        )
+*        )
+*/
     public function update(Request $request, $id)
     {
         $this->grantIfRole('admin');
@@ -100,7 +142,8 @@ class UserController extends Controller
                 'message' => 'Record not found',
             ], 404);
         }
-        $user->user = $request->user;
+        $user->name = $request->name;
+        $user->email = $request->email;
         $user->save();
         return $user;
     }
@@ -108,7 +151,7 @@ class UserController extends Controller
 /**
 *
 *   @SWG\Delete(
-*        path="/api/v1/user/{id}",
+*        path="/api/v1/User/{id}",
 *        summary="Removes the User resource.",
 *        produces={"application/json"},
 *        tags={"user"},
