@@ -7,7 +7,7 @@ use Backpack\CRUD\CrudTrait;
 
 class ShopLocation extends Model {
 
-	use CrudTrait;
+	//use CrudTrait;
 
     /*
 	|--------------------------------------------------------------------------

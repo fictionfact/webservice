@@ -7,7 +7,7 @@ use Backpack\CRUD\CrudTrait;
 
 class ShopOwner extends Model {
 
-	use CrudTrait;
+	//use CrudTrait;
 
     /*
 	|--------------------------------------------------------------------------
