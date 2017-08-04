@@ -54,7 +54,42 @@ class customercontroller extends Controller
     {
         //
     }
-
+/**
+* 
+*    @SWG\POST(
+*        path="/api/v1/customer/{id}",
+*        summary="add Customer resources.",
+*        produces={"application/json"},
+*        tags={"customer"},
+*        @SWG\Response(
+*            response=200,
+*            description="customer collection.",
+*            @SWG\Schema(
+*                type="array",
+*                @SWG\Items(ref="#/definitions/customer")
+*                )
+*            ),
+*            @SWG\Response(
+*                response=401,
+*                description="Unauthorized action.",
+*            ),
+*            @SWG\Parameter(
+*                name="Authorization",
+*                in="header",
+*                required=true,
+*                type="string"
+*            ),
+*        @SWG\Parameter(
+*            name="body",
+*            in="body",
+*            required=true,
+*            type="string",
+*            @SWG\Schema(
+*            type="string"
+*            )
+*        )
+*        )
+*/
     /**
      * Store a newly created resource in storage.
      *
@@ -63,10 +98,24 @@ class customercontroller extends Controller
      */
     public function store(Request $request)
     {    $this->grantIfRole('admin');
+    try{
+                $this->validate($request,[
+                    'birthday' => 'required',
+                    'gender' => 'required',
+                    'email' => 'required',
+                    'phone' => 'required',
+                    ]);
+            }catch(Exception $e){
+                throw new Exception('salah pek');
+
+            }
         $customer = new Customer();
-        $customer->customer = $request->customer;
+        $customer->birthday = $request->input('birthday');
+        $customer->gender = $request->input('gender');
+        $customer->email = $request->input('email');
+        $customer->phone = $request->input('phone');
         $customer->save();
-        return $customer;
+        return response()->json($customer);
     }
 
     /**
