@@ -50,7 +50,42 @@ class ItemController extends Controller
         return $item;
     }
 
-
+/**
+* 
+*    @SWG\POST(
+*        path="/api/v1/item/{id}",
+*        summary="add Customer resources.",
+*        produces={"application/json"},
+*        tags={"item"},
+*        @SWG\Response(
+*            response=200,
+*            description="item collection.",
+*            @SWG\Schema(
+*                type="array",
+*                @SWG\Items(ref="#/definitions/item")
+*                )
+*            ),
+*            @SWG\Response(
+*                response=401,
+*                description="Unauthorized action.",
+*            ),
+*            @SWG\Parameter(
+*                name="Authorization",
+*                in="header",
+*                required=true,
+*                type="string"
+*            ),
+*        @SWG\Parameter(
+*            name="body",
+*            in="body",
+*            required=true,
+*            type="string",
+*            @SWG\Schema(
+*            type="string"
+*            )
+*        )
+*        )
+*/
     /**
      * Store a newly created resource in storage.
      *
