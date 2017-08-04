@@ -239,4 +239,3 @@ class customercontroller extends Controller
         ]);
     }
 }
-
