@@ -86,7 +86,7 @@ class ShopController extends Controller
 /**
 * 
 *    @SWG\Put(
-*        path="/api/v1/Shop/{id}",
+*        path="/api/v1/shop/{id}",
 *        summary="Edit shops resources.",
 *        produces={"application/json"},
 *        tags={"shop"},

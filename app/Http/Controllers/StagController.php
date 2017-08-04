@@ -85,7 +85,7 @@ class StagController extends Controller
 /**
 * 
 *    @SWG\Put(
-*        path="/api/v1/Stag/{id}",
+*        path="/api/v1/stag/{id}",
 *        summary="Edit stag resources.",
 *        produces={"application/json"},
 *        tags={"stag"},
@@ -148,7 +148,7 @@ class StagController extends Controller
 /**
 *
 *   @SWG\Delete(
-*        path="/api/v1/Stag/{id}",
+*        path="/api/v1/stag/{id}",
 *        summary="Removes the Stag resource.",
 *        produces={"application/json"},
 *        tags={"stag"},

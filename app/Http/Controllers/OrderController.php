@@ -105,6 +105,50 @@ class OrderController extends Controller
         //
     }
 
+
+/**
+* 
+*    @SWG\Put(
+*        path="/api/v1/order/{id}",
+*        summary="Edit order resources.",
+*        produces={"application/json"},
+*        tags={"order"},
+*        @SWG\Response(
+*            response=200,
+*            description="order collection.",
+*            @SWG\Schema(
+*                type="array",
+*                @SWG\Items(ref="#/definitions/order")
+*                )
+*            ),
+*            @SWG\Response(
+*                response=401,
+*                description="Unauthorized action.",
+*            ),
+*            @SWG\Parameter(
+*                name="Authorization",
+*                in="header",
+*                required=true,
+*                type="string"
+*            ),
+*           @SWG\Parameter(
+*            name="id",
+*            in="path",
+*            required=true,
+*            type="integer"
+*           ),
+*        @SWG\Parameter(
+*            name="body",
+*            in="body",
+*            required=true,
+*            type="string",
+*            @SWG\Schema(
+*            type="string"
+*            )
+*        )
+*        )
+*/
+
     /**
      * Update the specified resource in storage.
      *

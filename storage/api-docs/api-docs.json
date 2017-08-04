@@ -281,6 +281,52 @@
             }
         },
         "/api/v1/order/{id}": {
+            "put": {
+                "tags": [
+                    "order"
+                ],
+                "summary": "Edit order resources.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "order collection.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/order"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized action."
+                    }
+                }
+            },
             "delete": {
                 "tags": [
                     "order"
@@ -316,7 +362,7 @@
                 }
             }
         },
-        "/api/v1/Shop": {
+        "/api/v1/shop": {
             "get": {
                 "tags": [
                     "shop"
@@ -349,7 +395,7 @@
                 }
             }
         },
-        "/api/v1/Shop/{id}": {
+        "/api/v1/shop/{id}": {
             "put": {
                 "tags": [
                     "shop"
@@ -628,7 +674,7 @@
                 }
             }
         },
-        "/api/v1/Stag": {
+        "/api/v1/stag": {
             "get": {
                 "tags": [
                     "stag"
@@ -661,7 +707,7 @@
                 }
             }
         },
-        "/api/v1/Stag/{id}": {
+        "/api/v1/stag/{id}": {
             "put": {
                 "tags": [
                     "stag"
@@ -743,7 +789,7 @@
                 }
             }
         },
-        "/api/v1/User": {
+        "/api/v1/user": {
             "get": {
                 "tags": [
                     "user"
