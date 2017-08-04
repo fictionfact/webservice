@@ -18,9 +18,9 @@ Route::group(['prefix'=>'v1'],function(){
 	Route::group(['middleware'=>['jwt.auth']], function(){
 		Route::resource('itag','ItagController',['except'=>['create','edit']]);
 		Route::resource('item','ItemController',['except'=>['create','edit']]);
-		Route::resource('Shop','ShopController',['except'=>['create','edit']]);
-		Route::resource('Stag','StagController',['except'=>['create','edit']]);
-		Route::resource('User','UserController',['except'=>['create','edit']]);
+		Route::resource('shop','ShopController',['except'=>['create','edit']]);
+		Route::resource('stag','StagController',['except'=>['create','edit']]);
+		Route::resource('user','UserController',['except'=>['create','edit']]);
 
 		Route::resource('order','OrderController',['except'=>['create','edit']]);
 		Route::resource('password_reset','PasswordResetController',['except'=>['create','edit']]);

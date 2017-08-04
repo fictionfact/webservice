@@ -11,7 +11,7 @@ class UserController extends Controller
 /**
 * 
 *    @SWG\Get(
-*        path="/api/v1/User",
+*        path="/api/v1/user",
 *        summary="Retrieves the collection of User resources.",
 *        produces={"application/json"},
 *        tags={"user"},

@@ -11,7 +11,7 @@ class ShopController extends Controller
 /**
 * 
 *    @SWG\Get(
-*        path="/api/v1/Shop",
+*        path="/api/v1/shop",
 *        summary="Retrieves the collection of Shop resources.",
 *        produces={"application/json"},
 *        tags={"shop"},

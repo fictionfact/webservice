@@ -10,7 +10,7 @@ class StagController extends Controller
 /**
 * 
 *    @SWG\Get(
-*        path="/api/v1/Stag",
+*        path="/api/v1/stag",
 *        summary="Retrieves the collection of Stag resources.",
 *        produces={"application/json"},
 *        tags={"stag"},
