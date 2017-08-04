@@ -94,8 +94,8 @@ class UserController extends Controller
     /**
 * 
 *    @SWG\Put(
-*        path="/api/v1/User/{id}",
-*        summary="Edit User resources.",
+*        path="/api/v1/user/{id}",
+*        summary="Edit user resources.",
 *        produces={"application/json"},
 *        tags={"user"},
 *        @SWG\Response(
@@ -151,7 +151,7 @@ class UserController extends Controller
 /**
 *
 *   @SWG\Delete(
-*        path="/api/v1/User/{id}",
+*        path="/api/v1/user/{id}",
 *        summary="Removes the User resource.",
 *        produces={"application/json"},
 *        tags={"user"},
