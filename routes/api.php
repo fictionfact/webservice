@@ -26,6 +26,9 @@ Route::group(['prefix'=>'v1'],function(){
 		Route::resource('password_reset','PasswordResetController',['except'=>['create','edit']]);
 		Route::resource('revision','RevisionController',['except'=>['create','edit']]);
 		Route::resource('customer','customercontroller',['except'=>['create','edit']]);
+		Route::resource('shop_location','ShopLocationcontroller',['except'=>['create','edit']]);
+		Route::resource('shop_owner','ShopOwnercontroller',['except'=>['create','edit']]);
+		Route::resource('shop_stag','ShopStagcontroller',['except'=>['create','edit']]);
 	});
 	
 });

@@ -9,6 +9,26 @@ class ShopStag extends Model {
 
 	//use CrudTrait;
 
+/**
+*
+*   @SWG\Definition(
+*       definition="shop_stag",
+*       @SWG\Property(
+*           property="id",
+*           type="integer",
+*           format="int32"
+*       ),
+*       @SWG\Property(
+*           property="shop_id",
+*           type="integer"
+*		),
+*       @SWG\Property(
+*           property="stag_id",
+*           type="integer"
+*       )
+*	)
+*/
+
     /*
 	|--------------------------------------------------------------------------
 	| GLOBAL VARIABLES

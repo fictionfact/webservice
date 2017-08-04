@@ -397,6 +397,283 @@
                 }
             }
         },
+        "/api/v1/shop_location": {
+            "get": {
+                "tags": [
+                    "shop_location"
+                ],
+                "summary": "Retrieves the collection of Shop's Locations resources.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Shop Locations collection.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/shop_location"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized action."
+                    }
+                }
+            }
+        },
+        "/api/v1/shop_location/{id}": {
+            "put": {
+                "tags": [
+                    "shop_location"
+                ],
+                "summary": "Edit shops location resources.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "shop location collection.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/shop_location"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized action."
+                    }
+                }
+            }
+        },
+        "/api/v1/shop_owner": {
+            "get": {
+                "tags": [
+                    "shop_owner"
+                ],
+                "summary": "Retrieves the collection of Shop's Owners resources.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Shop Owners collection.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/shop_owner"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized action."
+                    }
+                }
+            }
+        },
+        "/api/v1/shop_owner/{id}": {
+            "put": {
+                "tags": [
+                    "shop_owner"
+                ],
+                "summary": "Edit shops owner resources.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "shop owner collection.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/shop_owner"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized action."
+                    }
+                }
+            }
+        },
+        "/api/v1/shop_stag": {
+            "get": {
+                "tags": [
+                    "shop_stag"
+                ],
+                "summary": "Retrieves the collection of Shop's Stag resources.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Shop Stag collection.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/shop_stag"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized action."
+                    }
+                }
+            }
+        },
+        "/api/v1/shop_stag/{id}": {
+            "put": {
+                "tags": [
+                    "shop_stag"
+                ],
+                "summary": "Edit shops stag resources.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "shop stag collection.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/shop_stag"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized action."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "shop_stag"
+                ],
+                "summary": "Removes the Shop Stag resource.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Shop Stag resource deleted."
+                    },
+                    "401": {
+                        "description": "Unauthorized action."
+                    },
+                    "404": {
+                        "description": "Resource not found."
+                    }
+                }
+            }
+        },
         "/api/v1/Stag": {
             "get": {
                 "tags": [
@@ -872,6 +1149,70 @@
                 },
                 "updated_at": {
                     "type": "string"
+                }
+            }
+        },
+        "shop_location": {
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "shop_owner": {
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "user_id": {
+                    "type": "string"
+                },
+                "birthday": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "gender": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "shop_stag": {
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "shop_id": {
+                    "type": "integer"
+                },
+                "stag_id": {
+                    "type": "integer"
                 }
             }
         },
