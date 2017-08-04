@@ -593,52 +593,6 @@
             }
         },
         "/api/v1/shop_stag/{id}": {
-            "put": {
-                "tags": [
-                    "shop_stag"
-                ],
-                "summary": "Edit shops stag resources.",
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "type": "integer"
-                    },
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "shop stag collection.",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/shop_stag"
-                            }
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthorized action."
-                    }
-                }
-            },
             "delete": {
                 "tags": [
                     "shop_stag"

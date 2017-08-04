@@ -79,7 +79,7 @@ class ShopLocationController extends Controller
      * @param  \App\Models\ShopLocation  $shopLocation
      * @return \Illuminate\Http\Response
      */
-    public function show(ShopLocation $shopLocation)
+    public function show($id)
     {
         $this->grantIfRole('admin');
         $shop_location = ShopLocation::find($id);
@@ -97,7 +97,7 @@ class ShopLocationController extends Controller
      * @param  \App\Models\ShopLocation  $shopLocation
      * @return \Illuminate\Http\Response
      */
-    public function edit(ShopLocation $shopLocation)
+    public function edit(Request $request, $id)
     {
         //
     }
@@ -152,7 +152,7 @@ class ShopLocationController extends Controller
      * @param  \App\Models\ShopLocation  $shopLocation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ShopLocation $shopLocation)
+    public function update(Request $request, $id)
     {
         $this->grantIfRole('admin');
         $shop_location = ShopLocation::find($id);
@@ -172,7 +172,7 @@ class ShopLocationController extends Controller
      * @param  \App\Models\ShopLocation  $shopLocation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ShopLocation $shopLocation)
+    public function destroy($id)
     {
         $this->grantIfRole('admin');
         $shop_location = ShopLocation::find($id);

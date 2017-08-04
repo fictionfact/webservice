@@ -94,3 +94,46 @@ swagger item
 *        )
 *    )
 */
+swagger shopstag
+/**
+* 
+*    @SWG\Put(
+*        path="/api/v1/shop_stag/{id}",
+*        summary="Edit shops stag resources.",
+*        produces={"application/json"},
+*        tags={"shop_stag"},
+*        @SWG\Response(
+*            response=200,
+*            description="shop stag collection.",
+*            @SWG\Schema(
+*                type="array",
+*                @SWG\Items(ref="#/definitions/shop_stag")
+*                )
+*            ),
+*            @SWG\Response(
+*                response=401,
+*                description="Unauthorized action.",
+*            ),
+*            @SWG\Parameter(
+*                name="Authorization",
+*                in="header",
+*                required=true,
+*                type="string"
+*            ),
+*           @SWG\Parameter(
+*            name="id",
+*            in="path",
+*            required=true,
+*            type="integer"
+*           ),
+*        @SWG\Parameter(
+*            name="body",
+*            in="body",
+*            required=true,
+*            type="string",
+*            @SWG\Schema(
+*            type="string"
+*            )
+*        )
+*        )
+*/

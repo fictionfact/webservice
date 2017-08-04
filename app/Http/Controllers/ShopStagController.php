@@ -79,7 +79,7 @@ class ShopStagController extends Controller
      * @param  \App\Models\ShopStag  $shopStag
      * @return \Illuminate\Http\Response
      */
-    public function show(ShopStag $shopStag)
+    public function show($id)
     {
         $this->grantIfRole('admin');
         $shop_stag = ShopStag::find($id);
@@ -97,53 +97,12 @@ class ShopStagController extends Controller
      * @param  \App\Models\ShopStag  $shopStag
      * @return \Illuminate\Http\Response
      */
-    public function edit(ShopStag $shopStag)
+    public function edit(Request $request, $id)
     {
         //
     }
 
-/**
-* 
-*    @SWG\Put(
-*        path="/api/v1/shop_stag/{id}",
-*        summary="Edit shops stag resources.",
-*        produces={"application/json"},
-*        tags={"shop_stag"},
-*        @SWG\Response(
-*            response=200,
-*            description="shop stag collection.",
-*            @SWG\Schema(
-*                type="array",
-*                @SWG\Items(ref="#/definitions/shop_stag")
-*                )
-*            ),
-*            @SWG\Response(
-*                response=401,
-*                description="Unauthorized action.",
-*            ),
-*            @SWG\Parameter(
-*                name="Authorization",
-*                in="header",
-*                required=true,
-*                type="string"
-*            ),
-*           @SWG\Parameter(
-*            name="id",
-*            in="path",
-*            required=true,
-*            type="integer"
-*           ),
-*        @SWG\Parameter(
-*            name="body",
-*            in="body",
-*            required=true,
-*            type="string",
-*            @SWG\Schema(
-*            type="string"
-*            )
-*        )
-*        )
-*/
+
 
     /**
      * Update the specified resource in storage.
@@ -152,7 +111,7 @@ class ShopStagController extends Controller
      * @param  \App\Models\ShopStag  $shopStag
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ShopStag $shopStag)
+    public function update(Request $request, $id)
     {
         $this->grantIfRole('admin');
         $shop_stag = ShopStag::find($id);
@@ -206,7 +165,7 @@ class ShopStagController extends Controller
      * @param  \App\Models\ShopStag  $shopStag
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ShopStag $shopStag)
+    public function destroy($id)
     {
         $this->grantIfRole('admin');
         $shop_stag = ShopStag::find($id);

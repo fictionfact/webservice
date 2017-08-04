@@ -79,7 +79,7 @@ class ShopOwnerController extends Controller
      * @param  \App\Models\ShopOwner  $shopOwner
      * @return \Illuminate\Http\Response
      */
-    public function show(ShopOwner $shopOwner)
+    public function show($id)
     {
         $this->grantIfRole('admin');
         $shop_owner = ShopOwner::find($id);
@@ -97,7 +97,7 @@ class ShopOwnerController extends Controller
      * @param  \App\Models\ShopOwner  $shopOwner
      * @return \Illuminate\Http\Response
      */
-    public function edit(ShopOwner $shopOwner)
+    public function edit(Request $request, $id)
     {
         //
     }
@@ -152,7 +152,7 @@ class ShopOwnerController extends Controller
      * @param  \App\Models\ShopOwner  $shopOwner
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ShopOwner $shopOwner)
+    public function update(Request $request, $id)
     {
         $this->grantIfRole('admin');
         $shop_owner = ShopOwner::find($id);
@@ -161,7 +161,9 @@ class ShopOwnerController extends Controller
                 'message' => 'Record not found',
             ], 404);
         }
-        $shop_owner->name = $request->name;
+        $shop_owner->birthday = $request->birthday;
+        $shop_owner->gender = $request->gender;
+        $shop_owner->phone = $request->phone;
         $shop_owner->save();
         return $shop_owner;
     }
@@ -172,7 +174,7 @@ class ShopOwnerController extends Controller
      * @param  \App\Models\ShopOwner  $shopOwner
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ShopOwner $shopOwner)
+    public function destroy($id)
     {
         $this->grantIfRole('admin');
         $shop_owner = ShopOwner::find($id);
